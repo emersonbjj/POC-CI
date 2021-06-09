@@ -1,0 +1,218 @@
+﻿<process name="Orchestrator" version="1.0" bpversion="6.8.0.23415" narrative="" byrefcollection="true" type="object" runmode="Background" preferredid="8a774d1a-d63e-4cfd-8730-fb391c595f98">
+  <appdef>
+    <element name="Application Root">
+      <id>9d841013-bf00-4503-a833-933246848c85</id>
+      <type>Application</type>
+      <basetype>Application</basetype>
+      <datatype>unknown</datatype>
+      <diagnose>False</diagnose>
+    </element>
+  </appdef>
+  <view>
+    <camerax>0</camerax>
+    <cameray>0</cameray>
+    <zoom version="2">1.25</zoom>
+  </view>
+  <preconditions />
+  <endpoint narrative="" />
+  <subsheet subsheetid="3f8d6041-c995-4c01-817b-cb1c0c215274" type="CleanUp" published="True">
+    <name>Clean Up</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <subsheet subsheetid="8ffa2e48-da80-42a1-86db-48955c8e5017" type="Normal" published="True">
+    <name>Execute Command Line</name>
+    <view>
+      <camerax>0</camerax>
+      <cameray>0</cameray>
+      <zoom version="2">1.25</zoom>
+    </view>
+  </subsheet>
+  <stage stageid="9d88ad3c-8384-4de3-ab35-a66ace73e86f" name="Start" type="Start">
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>c9f9a074-422a-4087-9459-c7a808252ec2</onsuccess>
+  </stage>
+  <stage stageid="c9f9a074-422a-4087-9459-c7a808252ec2" name="End" type="End">
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="0f8bceb5-8bd3-484d-ac41-3f687a798694" name="Stage1" type="ProcessInfo">
+    <display x="-195" y="-105" w="150" h="90" />
+    <references>
+      <reference>System.dll</reference>
+      <reference>System.Data.dll</reference>
+      <reference>System.Xml.dll</reference>
+      <reference>System.Drawing.dll</reference>
+    </references>
+    <imports>
+      <import>System</import>
+      <import>System.Drawing</import>
+      <import>System.Data</import>
+      <import>System.Diagnostics</import>
+    </imports>
+    <language>csharp</language>
+    <globalcode><![CDATA[]]></globalcode>
+    <code><![CDATA[]]></code>
+  </stage>
+  <stage stageid="280025b7-6ba9-4644-a0d3-2539a2f17164" name="Clean Up" type="SubSheetInfo">
+    <subsheetid>3f8d6041-c995-4c01-817b-cb1c0c215274</subsheetid>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="e677c9f8-c867-427c-9a13-3358e573fb4d" name="Start" type="Start">
+    <subsheetid>3f8d6041-c995-4c01-817b-cb1c0c215274</subsheetid>
+    <loginhibit />
+    <display x="15" y="-105" />
+    <onsuccess>326e7595-9a21-458a-9ace-7aad049c9511</onsuccess>
+  </stage>
+  <stage stageid="326e7595-9a21-458a-9ace-7aad049c9511" name="End" type="End">
+    <subsheetid>3f8d6041-c995-4c01-817b-cb1c0c215274</subsheetid>
+    <loginhibit />
+    <display x="15" y="90" />
+  </stage>
+  <stage stageid="e2e29017-fd54-4ee3-b805-f787802f2edc" name="Execute Command Line" type="SubSheetInfo">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <narrative>This action is responsible for execute command line</narrative>
+    <display x="-195" y="-105" w="150" h="90" />
+  </stage>
+  <stage stageid="1857f641-794c-4877-b20d-8185fc07e338" name="Start" type="Start">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="15" y="-135" />
+    <inputs>
+      <input type="text" name="Command Line" narrative="Command line to execute" stage="Command Line" />
+    </inputs>
+    <onsuccess>74246a98-987f-4648-a2a9-0cfef4c51591</onsuccess>
+  </stage>
+  <stage stageid="717af3d8-6f06-495d-abf2-ac7324a7dfac" name="End" type="End">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="15" y="120" />
+  </stage>
+  <stage stageid="c9ba9a99-6c7f-4d32-827a-65283fcfb54f" name="Note1" type="Note">
+    <subsheetid>3f8d6041-c995-4c01-817b-cb1c0c215274</subsheetid>
+    <narrative>Clean Up Page
+
+This is an optional page where you might choose to perform some finalisation (or "cleanup") tasks as your business object is closed down.
+
+The cleanup action will be called automatically immediately after closing your business object at the end of a business process.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than before the disposal of the business object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="513e53f1-e87c-4715-b64f-02fbf9bc4a13" name="Note2" type="Note">
+    <narrative>Initialise Page
+
+This is an optional page where you might choose to perform some initialisation tasks after your business object is loaded.
+
+The initialise action will be called automatically immediately after loading your business object.
+
+You will not be able to call this action from a business process, nor will it be called at any other time than after the creation of the object.</narrative>
+    <display x="-180" y="60" w="180" h="230" />
+  </stage>
+  <stage stageid="e06362bf-7208-44bb-a787-5054b813d4fd" name="Execute" type="Code">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="15" y="-15" w="90" h="30" />
+    <inputs>
+      <input type="text" name="Command Line" expr="[Command Line]" />
+    </inputs>
+    <outputs>
+      <output type="flag" name="Sucesso" stage="Sucesso" />
+      <output type="text" name="Message" stage="Message" />
+    </outputs>
+    <onsuccess>f7ec85b2-d18e-4860-8ed4-5ec418af0a7c</onsuccess>
+    <code><![CDATA[try	{
+	
+	Process cmd = new Process();
+	cmd.StartInfo.FileName = "cmd.exe";
+	cmd.StartInfo.RedirectStandardInput = true;
+	cmd.StartInfo.RedirectStandardOutput = true;
+	cmd.StartInfo.CreateNoWindow = true;
+	cmd.StartInfo.UseShellExecute = false;
+	cmd.Start();
+
+	cmd.StandardInput.WriteLine(Command_Line);
+	cmd.StandardInput.Flush();
+	cmd.StandardInput.Close();
+	cmd.WaitForExit();
+	
+	Sucesso = true;
+	Message = "";
+
+}
+catch (Exception e)
+{
+	Sucesso = false;
+    Message =(e.Message);
+}
+
+
+]]></code>
+  </stage>
+  <stage stageid="65defc6f-1cde-460f-b2db-77ce134ad41c" name="Command Line" type="Data">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <display x="-195" y="-15" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="aca1b754-db26-4e3c-84d7-3c855e73738f" name="Input" type="Block">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="-270" y="-45" w="150" h="75" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="01e1bb14-8983-4f36-953c-5d1f428f8d2e" name="Sucesso" type="Data">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <display x="-195" y="75" w="90" h="30" />
+    <datatype>flag</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="8e5abe13-e05a-4155-8bf0-23fd37ce2958" name="Process" type="Block">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="-270" y="45" w="150" h="90" />
+    <font family="Segoe UI" size="10" style="Regular" color="7FB2E5" />
+  </stage>
+  <stage stageid="b25499fe-2327-4915-ba45-da6eafed97d0" name="Message" type="Data">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <display x="-195" y="105" w="90" h="30" />
+    <datatype>text</datatype>
+    <initialvalue />
+    <private />
+    <alwaysinit />
+  </stage>
+  <stage stageid="f7ec85b2-d18e-4860-8ed4-5ec418af0a7c" name="Sucess?" type="Decision">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="15" y="45" w="90" h="60" />
+    <decision expression="[Sucesso]" />
+    <ontrue>717af3d8-6f06-495d-abf2-ac7324a7dfac</ontrue>
+    <onfalse>c0f44a7c-7dac-459b-8977-94e7a436417d</onfalse>
+  </stage>
+  <stage stageid="c0f44a7c-7dac-459b-8977-94e7a436417d" name="Exception" type="Exception">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <display x="135" y="45" w="90" h="30" />
+    <exception localized="yes" type="System Exception" detail="[Message]" />
+  </stage>
+  <stage stageid="74246a98-987f-4648-a2a9-0cfef4c51591" name="Has content?" type="Decision">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <loginhibit />
+    <display x="15" y="-75" w="90" h="60" />
+    <decision expression="[Command Line] &lt;&gt; &quot;&quot;" />
+    <ontrue>e06362bf-7208-44bb-a787-5054b813d4fd</ontrue>
+    <onfalse>8d49d19e-aa06-4140-96b7-0b642e01dc91</onfalse>
+  </stage>
+  <stage stageid="8d49d19e-aa06-4140-96b7-0b642e01dc91" name="Business Exception" type="Exception">
+    <subsheetid>8ffa2e48-da80-42a1-86db-48955c8e5017</subsheetid>
+    <display x="135" y="-75" w="90" h="30" />
+    <exception localized="yes" type="Business Exception" detail="&quot;Could not found Command Line&quot;" />
+  </stage>
+</process>
